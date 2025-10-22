@@ -1,0 +1,196 @@
+% This file contains the shared preamble for your book.
+
+% FONT and ENCODING
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+
+% MATH
+\usepackage[mathscr]{euscript}
+\usepackage{amsmath, amssymb}
+\usepackage{physics}
+\usepackage{nccmath}
+\usepackage{cancel}
+
+% GRAPHICS & FIGURES
+\usepackage{graphicx}
+\usepackage{subcaption} % Recommended over subfig for kaobook
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+% TABLES
+\usepackage{array, multirow, multicol}
+
+% TIKZ and DIAGRAMS
+\usepackage{tikz}
+\usetikzlibrary{calc, arrows.meta, chains, positioning, decorations.text}
+\usepackage{venndiagram}
+
+% THEOREMS and BOXES
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{tcolorbox}
+\tcbuselibrary{most}
+
+% OTHER PACKAGES
+\usepackage{float}
+\usepackage[footnote]{witharrows}
+\usepackage{svrsymbols}
+\usepackage{fontawesome}
+
+% --- CUSTOM COMMANDS AND ENVIRONMENTS (from your original file) ---
+
+% THEOREM-LIKE ENVIRONMENTS
+\declaretheorem[thmbox=L]{Hipótesis}
+\declaretheorem[thmbox=L]{Aproximación}
+\declaretheorem[thmbox=M]{Postulado}
+\declaretheorem[thmbox=M]{Principio}
+\declaretheorem[thmbox=M]{Ley}
+\declaretheorem[thmbox=S]{Teorema}
+
+% DEMONSTRATION ENVIRONMENT (mdframed)
+\newcounter{dem}[chapter]\setcounter{dem}{0}
+\renewcommand{\thedem}{\Roman{dem}}
+\newenvironment{dem}[2][]{%
+\refstepcounter{dem}%
+\ifstrempty{#1}% 
+{\mdfsetup{% 
+frametitle={% 
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=white]
+{\strut Demostración~\thedem};
+}}% 
+}
+{\mdfsetup{% 
+frametitle={% 
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=white]
+{\begin{minipage}{0.99\linewidth}Demostración~\thedem~#1\end{minipage}};}}% 
+}
+\mdfsetup{innertopmargin=10pt,linecolor=black,% 
+linewidth=0.5pt,topline=true,% 
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\end{mdframed}}
+
+% EXERCISE ENVIRONMENT (tcolorbox)
+\newtcolorbox[auto counter,
+              number within=chapter,
+              list inside=ej
+              ]{ej}[1][]{
+    enhanced, breakable,
+    title={{\begin{minipage}{\linewidth}\textbf{Ejercicio}~\thetcbcounter.~\textit{#1}\end{minipage}}},
+    halign title=left,
+    sharp corners,
+    colback=white,
+    coltitle=black,
+    colbacktitle=white,
+    boxrule=0pt,frame hidden,
+    underlay unbroken and first={
+         \ifnumequal{\tcbsegmentstate}{0}{ 
+            \draw[black,double] (interior.north west)--(interior.south west);
+        }{\ifnumequal{\tcbsegmentstate}{1}{
+                \draw[black,double] (interior.north west)--(segmentation.west);
+            \begin{tcbclipinterior}
+                    \draw[help lines, step=2.1mm, black!10!white](segmentation.south west) grid (frame.south east);
+            \end{tcbclipinterior}
+        }{\ifnumequal{\tcbsegmentstate}{2}{
+            \begin{tcbclipinterior}
+                    \draw[help lines, step=2.1mm, black!10!white](interior.north west) grid (interior.south east);
+            \end{tcbclipinterior}
+        }}}
+    },
+    underlay middle and last={
+         \ifnumequal{\tcbsegmentstate}{0}{
+            \draw[black,double] (interior.north west)--(interior.south west);
+        }{\ifnumequal{\tcbsegmentstate}{1}{
+                \draw[black,double] (interior.north west)--(segmentation.west);
+            \begin{tcbclipinterior}
+                    \draw[help lines, step=2.1mm, black!10!white](segmentation.south west) grid (frame.south east);
+            \end{tcbclipinterior}
+        }{\ifnumequal{\tcbsegmentstate}{2}{
+            \begin{tcbclipinterior}
+                    \draw[help lines, step=2.1mm, black!10!white](interior.north west) grid (interior.south east);
+            \end{tcbclipinterior}
+        }}}
+    },
+    boxed title style={
+      colframe=white,
+      boxrule=0pt,
+      colback=white,
+      left=0pt,
+      right=0pt},
+    attach boxed title to top left={xshift={-5pt}},
+    lower separated=false,
+    before lower = {\tcbsubtitle[colback=white, opacityback=0, colframe=black, opacityframe=0, boxrule=1pt, height=1cm,  width=2.55cm, valign=center]{\textbf{Solución:}}}
+}
+
+% DEFINITION ENVIRONMENT (tcolorbox)
+\newtcolorbox[auto counter,
+              number within=chapter,
+              list inside=defi
+              ]{defi}[1][]{
+    enhanced,
+    title={{\begin{minipage}{0.99\linewidth}\textbf{\textit{#1}}\end{minipage}}},
+    halign title=left,
+    sharp corners,
+    colback=white,
+    coltitle=black,
+    colbacktitle=white,
+    boxrule=0pt,frame hidden,
+    overlay unbroken={
+      \draw[black,double] (interior.north west)--(interior.south west);
+      },
+    boxed title style={
+      colframe=white,
+      boxrule=0pt,
+      colback=white,
+      left=0pt,
+      right=0pt},
+    attach boxed title to top left={xshift={-5pt}},
+}
+
+% FONT AWESOME SYMBOLS
+\def\faChecked{\FA\symbol{"F00C}}
+\def\faCrossed{\FA\symbol{"F00D}}
+
+% COURSE-SPECIFIC COMMANDS
+\newcommand{\CourseSemester}{ - }
+
+% --- LECTURE LIST SETUP (for kaobook) ---
+% This replaces the tocloft setup from your original file.
+\newcommand{\listlecturename}{Clases}
+\DeclareNewTOC[
+    type=lecture,
+    name=\listlecturename,
+    listname={Índice de clases}
+]{lec}
+\newcounter{lecnum}
+\newcommand{\lecture}[3]{% usage: \lecture{number}{title}{date}
+    \clearpage
+    \pagestyle{myheadings}
+    \setcounter{lecnum}{#1}
+    \setcounter{page}{1}
+    \refstepcounter{lecture}
+    \addcontentsline{lec}{lecture}{Clase~#1:~#2}
+    
+    % Encabezado de la clase
+    \noindent
+    \fbox{%
+      \begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+        \centering
+        \vspace{2mm}
+        {\bfseries #2 \hfill \CourseSemester}\\[4mm]
+        {\Large \textbf{Clase #1}}\\[4mm]
+        {\normalfont Fecha: #3 \hfill Profesor: \CourseInstructor}\\[2mm]
+      \end{minipage}%
+    }
+    
+    \markboth{Clase #1: #2}{Clase #1: #2}
+}
+
+% --- PACKAGES THAT MAY CONFLICT WITH KAOBOOK ---
+% The 'titlesec' and 'titoc' packages are incompatible with KOMA-Script classes like kaobook.
+% The 'geometry' package can interfere with kaobook's layout.
+% The 'tocloft' package is not needed as KOMA-Script provides \DeclareNewTOC.

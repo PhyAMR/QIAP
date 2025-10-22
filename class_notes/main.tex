@@ -1,0 +1,43 @@
+\documentclass{kaobook}
+
+% --- DOCUMENT-SPECIFIC COMMANDS ---
+\newcommand{\CourseInstructor}{Pietro Silvi}
+% ----------------------------------
+
+\input{preamble.tex}
+
+\newcommand{\listlecturename}{Class \hfill {\footnotesize Page \par}} % title of the list <<<<<<<<<<<<<<<<
+\newlistof[part]{lecture}{lec}{\listlecturename} % define list of lectures
+
+\newcounter{lecnum}
+
+\title{Quantum Information With Atoms and Photons Notes}
+\author{\CourseInstructor}
+\date{\CourseSemester}
+
+\begin{document}
+\maketitle
+\frontmatter
+\tableofcontents
+
+% Lecture index
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Class index}
+\listoflecture
+
+\mainmatter
+
+% ======= LECTURE INPUTS START =======
+% (the script will add \input{...} lines here)
+\input{lectures/QIAP-L1-Quantum_Mech_Refresher.tex}
+\input{lectures/QIAP-L2-Degenerate_Perturbation_Theory.tex}
+\input{lectures/QIAP-L3-Open_Quantum_Systems.tex}
+\input{lectures/QIAP-L4-Alkali_and_dipole_selection_rules.tex}
+\input{lectures/QIAP-L5-Lifting_atom_degeneracy.tex}
+\input{lectures/QIAP-L6-Raman_coupling.tex}
+\input{lectures/QIAP-L7-Lamb-Dicke_Regime.tex}
+\input{lectures/QIAP-L8-Two_trapped_ions.tex}
+% ======= LECTURE INPUTS END =======
+
+\end{document}
