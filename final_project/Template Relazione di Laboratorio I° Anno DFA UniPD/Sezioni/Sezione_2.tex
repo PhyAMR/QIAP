@@ -142,9 +142,9 @@ H'
 +
 \hbar g \left( \sigma^+ a + \sigma^- a^\dagger \right)
 +
-\xi a
+\mathcal{E} a
 +
-\xi^* a^\dagger .
+\mathcal{E}^* a^\dagger .
 \end{equation}
 
 \paragraph{Laboratory Frame Expression}
@@ -159,9 +159,9 @@ H
 +
 \hbar g \left( \sigma^+ a + \sigma^- a^\dagger \right)
 +
-\xi a
+\mathcal{E} a
 +
-\xi^* a^\dagger .
+\mathcal{E}^* a^\dagger .
 \end{equation}
 
 Consider the resonant case where
@@ -186,9 +186,9 @@ Given the conditions of the last point,
 \end{itemize}
 we can write the Hamiltonian \ref{eq:rwaham} as the following (using $\hbar=1$):
 \begin{equation}
-    H'= \xi a
+    H'= \mathcal{E} a
 +
-\xi^* a^\dagger
+\mathcal{E}^* a^\dagger
 \end{equation}
 As we can see this Hamiltonian is time independent and it represent the continuous creation and destruction of photons caused by the pumping field.
 We now can visualize the evolution of the expected values of the number of photons:
@@ -206,7 +206,7 @@ We also can visualize the different density matrices of the system along with oc
     \caption{Different density matrices of the system}
     \label{fig:placeholder}
 \end{figure}
-It is noticable that in this system we have a unifom distribution of the occupation probabilities of the different states with probability $\frac{1}{N}$, which is a consequence of the fact that we are loosing photons due to the losses of the bath ($\kappa$) but we are also adding photons through the pumping drive. In order to compare this distribution with a coherent state distribution we can visualize the density matrix of a coherent state with the same average photon number as the one of the J-C model coupled with a bath:
+It is noticeable that in this system the states where the atom can be in the excited states are empty (right plot). In order to compare this distribution with a coherent state distribution we can visualize the density matrix of a coherent state with the same average photon number as the one of the J-C model coupled with a bath:
 
 \begin{figure}[H]
     \centering    
@@ -216,7 +216,10 @@ It is noticable that in this system we have a unifom distribution of the occupat
 \end{figure}
 The coherent state is defined as:
 $$|\alpha\rangle = e^{-\frac{|\alpha|^2}{2}}\sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} |n\rangle$$
-Where $\alpha$ is a complex number that characterizes the state and $|n\rangle$ are the Fock states. The average photon number of a coherent state is given by $\langle \hat{a}^\dagger \hat{a} \rangle = |\alpha|^2$. In our case we choose $\alpha$ such that the average photon number of the coherent state is the same as the one of the J-C model coupled with a bath, in order to be able to compare the two distributions.
+Where $\alpha$ is a complex number that characterizes the state and $|n\rangle$ are the Fock states. The average photon number of a coherent state is given by $\langle \hat{a}^\dagger \hat{a} \rangle = |\alpha|^2$. In our case, we choose $\alpha$ such that the average photon number of the coherent state is the same as that of the J-C model coupled with a bath, in order to compare the two distributions.
+
+If $\langle n \rangle \gg 1$ we get a normal distribution centered at $|\alpha|^2$, so we set $|\alpha|=1$, $\kappa=0.001$ getting a value of $\mathcal{E}=0.0005$ to maintain a low number of photons and a weak drive.
+
 The density matrix of the coherent state is not diagonal in the Fock basis and the occupation probabilities of the different states follow a Poisson distribution. In order to compare the two distributions we can visualize the histogram of occupations for both cases:
 \begin{figure}[H]
     \centering
@@ -224,89 +227,130 @@ The density matrix of the coherent state is not diagonal in the Fock basis and t
     \caption{Comparison of the occupation probability of the different states with a coherent state}
     \label{fig:placeholder}
 \end{figure}
-As we can see the distribution of the occupation probabilities of the different states in the case of the J-C model coupled with a bath is very different from the one of a coherent state, which is a consequence of the fact that in the first case we have a uniform distribution while in the second case we have a Poisson distribution. The choice of the parameters was made in order to keep the average photon number small and therefore to be able to visualize the occupation probabilities of the different states without having to consider a large number of photon states.
+As we can see the distribution of the occupation probabilities of the different states in the case of the J-C model coupled with a bath is very similar to the one of a coherent state. The choice of the parameters was made in order to keep the average photon number small $\approx 1$ and therefore to be able to visualize the occupation probabilities of the different states without having to consider a large number of photon states.
 
-In this case the intensity of the drive $\mathcal{E}$ was chosen to be small since we want to study the weak drive regime, if the drive is too strong we get a perfect uniform distribution of the occupation probabilities of the different states, which is not interesting for our study. On the other hand if the drive is too weak we get a distribution that is very close to the vacuum state, which is also not interesting for our study. Therefore we choose a value of $\mathcal{E}$ that allows us to have a non-trivial distribution of the occupation probabilities of the different states while keeping the average photon number small.
+In this case the intensity of the drive $\mathcal{E}$ was chosen to be small since we want to study the weak drive regime, if the drive is too strong we get a perfect uniform distribution of the occupation probabilities of the different states, which is due to the impossibility of occupying more states (the maximum number of photons is set to  20) . Therefore we choose a value of $\mathcal{E}$ that allows us to have a non-trivial distribution of the occupation probabilities of the different states while keeping the average photon number small.
+
 \subsection{In the presence of a coupling $\tilde{g}$, the previous resonance condition is not valid anymore. Set $\omega$ to resonance with the lowest (one-photon) dressed state of the Jaynes-Cummings model and find again the steady state in the strong-coupling condition $\tilde{g} \gg \Gamma, \kappa$ and weak drive $\mathcal{E}$. How important is the value of the pumping strength $\mathcal{E}$? (Be careful that increasing $\mathcal{E}$ too much could lead to instability/bistability)}
-When the coupling $\tilde{g}$ is introduced, the degeneracy of the $n$-photon states is lifted, forming the Jaynes-Cummings ladder. To probe the blockade, we tune the drive frequency $\omega$ to the first rungs of the ladder, specifically $\omega = \omega_c \pm g$.In the strong-coupling condition ($g=100, \kappa=1, \Gamma=1$), the system enters the quantum regime. As shown in the evolution plots, the steady-state mean photon number $\langle n \rangle$ is significantly lower than in the $g=0$ case. The value of the pumping strength $\mathcal{E}$ is critical here:
+
+When the coupling $\tilde{g}$ is introduced, the degeneracy of the $n$-photon states is lifted, forming the \textbf{Jaynes-Cummings ladder}. To probe the blockade, we tune the drive frequency $\omega$ to the first rungs of the ladder, specifically $\omega = \omega_c \pm g$. In the strong-coupling condition ($g=100, \kappa=1, \Gamma=1$), the system enters the quantum regime.
+
+
+
+As shown in the evolution plots, the steady-state mean photon number $\langle n \rangle$ is significantly lower than in the $g=0$ case. The value of the pumping strength $\mathcal{E}$ is critical:
 \begin{itemize}
-\item If $\mathcal{E} \ll \kappa$, we stay in the single-photon regime, maximizing the blockade effect.
-\item As $\mathcal{E}$ increases (up to $\mathcal{E}=1.0$), we observe a slight increase in $\langle n \rangle$, but it remains $\ll 1$.
+    \item If $\mathcal{E} \ll \kappa$, we stay in the single-photon regime, maximizing the blockade effect and we will see something that is closer to a coherent state.
+    \item As $\mathcal{E}$ increases (up to $\mathcal{E}=0.5$), we observe a slight increase in $\langle n \rangle$, but it remains $\ll 1$.
 \end{itemize}
 
-This suggests that the "energy cost" to add a second photon—due to the anharmonicity of the J-C ladder—is much larger than the drive can provide, effectively blocking the $n=2$ state.
-Now we study the coupling effect in the strong coupling regime, in order to compare the results with those provided by the article I have chosen the values $(g,\kappa,\Gamma)=(100,1,1)$ 
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{Figure/E_epxect_strong.png}
-    \caption{Evuolution of the number of photons with different driving fields}
-    \label{fig:placeholder}
+    \caption{Time evolution of the mean photon number $\langle n \rangle$ for increasing drive strength $\mathcal{E}$. The system reaches a steady-state plateau where the drive is balanced by dissipation. Note that the maximum $\langle n \rangle$ remains below 0.1, illustrating the suppression of higher Fock states.}
+    \label{fig:E_expect_strong}
 \end{figure}
-As the intensity of the drive grows we can see that the number of photons in the cavity oscilates more and it reaches an equilibrum state at longer times.
+
+As the intensity of the drive grows, we can see that the number of photons in the cavity reaches an equilibrium state at longer times.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{Figure/E_prob_strong.png}
-    \caption{Occupation probabilities of the steady states for different regimes}
-    \label{fig:placeholder}
+    \caption{Steady-state occupation probabilities for various drive strengths $\mathcal{E}$. The $n=0$ (ground) and $n=1$ (single-photon) states dominate the distribution, while the $n=2$ population remains negligible, confirming the strong blockade regime.}
+    \label{fig:E_prob_strong}
 \end{figure}
-When looking at the distributions we gather more information since now we can see two main behaviours:
+
+When looking at the distributions we gather more information since now we can see two main behaviors:
 \begin{itemize}
-    \item The probability of finding the atom in the excited states grows with the drive. That is something we could expect since in the strong coupling case we have the cavity interacting with the atom and e
+    \item The probability of finding the atom in the excited state grows with the drive. This is expected since, driving the cavity mode necessarily populates the atomic excited state $|e\rangle$.
+    \item When the drive becomes too strong compared with the dissipation rate $\kappa$, the steady-state photon number exceeds the Hilbert space cutoff. This produces an artificial flattening of the occupation distribution, which is due to numerical errors.
 \end{itemize}
 \subsection{Can you have occupation of two photon states? If not, why? What happens if you increase the values of the decay rates? And if you change $\tilde{g}$?}
-Now we explore the different parameters
+
+In the strong-coupling regime with a weak drive, the occupation of two-photon states is strongly suppressed. This is the hallmark of the \textbf{photon blockade effect}. The physical reason lies in the anharmonicity of the Jaynes-Cummings energy ladder: the transition from the ground state to the first excited state $|g,0\rangle \to |1, \pm\rangle$ is resonant with the drive frequency $\omega = \omega_c \pm g$. However, due to the $\sqrt{n}$ scaling of the coupling, the transition to the two-photon state $|2, \pm\rangle$ is detuned by $(\sqrt{2}-1)g$. If this detuning is much larger than the linewidth of the states, the system cannot absorb a second photon.
+
 \paragraph{The coupling parameter $\tilde{g}$}
+Decreasing $\tilde{g}$ reduces the anharmonicity of the system. We can see that when we reach the strong coupling regime the probability of finding two photons states is 0
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{Figure/g_epxect_strong.png}
-    \caption{Caption}
-    \label{fig:placeholder}
+    \caption{Evolution of the mean photon number $\langle n \rangle$ for different values of the coupling strength $g$. As $g$ increases, the steady-state photon number decreases, indicating a more effective blockade.}
+    \label{fig:g_expect}
 \end{figure}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{Figure/g_prob_strong.png}
-    \caption{Caption}
-    \label{fig:placeholder}
+    \caption{Steady-state occupation probabilities for varying $g$. In the strong coupling limit (large $g$), the probability $P(n \ge 2)$ vanishes, while for small $g$ the distribution becomes more Poissonian.}
+    \label{fig:g_prob}
 \end{figure}
+
 \paragraph{The coupling parameter $\kappa$}
+Increasing the cavity decay rate $\kappa$ we see the opposite effect, because we are increasing the photon leaks of the bath
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{Figure/k_epxect_strong.png}
-    \caption{Caption}
-    \label{fig:placeholder}
+    \caption{Impact of cavity dissipation $\kappa$ on the photon evolution. Higher decay rates lead to lower photon numbers but also broader resonances that degrade the blockade quality.}
+    \label{fig:k_expect}
 \end{figure}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{Figure/k_prob_strong.png}
-    \caption{Caption}
-    \label{fig:placeholder}
+    \caption{Photon statistics for varying $\kappa$. Note that as $\kappa$ increases, the system transitions from a quantum blocked state toward a regime with higher statistical fluctuations.}
+    \label{fig:k_prob}
 \end{figure}
+
 \paragraph{The coupling parameter $\Gamma$}
+The atomic decay rate $\Gamma$ (or $\gamma$) acts similarly to $\kappa$ by introducing decoherence. A high $\Gamma$ reduces the lifetime of the atomic excitation, which effectively reduces the interaction time between the atom and the cavity field, weakening the non-linear response required for the blockade.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{Figure/G_epxect_strong.png}
-    \caption{Caption}
-    \label{fig:placeholder}
+    \caption{Time evolution of the expected values for varying atomic decay rates $\Gamma$. Increased atomic loss suppresses the steady-state population of the cavity mode.}
+    \label{fig:G_expect}
 \end{figure}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{Figure/G_prob_strong.png}
-    \caption{Caption}
-    \label{fig:placeholder}
+    \caption{Occupation probabilities as a function of $\Gamma$. The suppression of the two-photon state is most pronounced when the atomic coherence is maintained (low $\Gamma$).}
+    \label{fig:G_prob}
 \end{figure}
+
 \subsection{A way to understand the suppression of two-photon states is to compute the two-photon correlation function $g^{(2)} \equiv \langle \hat{a}^\dagger \hat{a}^\dagger \hat{a} \hat{a} \rangle / \langle \hat{a}^\dagger \hat{a} \rangle^2$, which compares the probability to find two simultaneous photons with the one of having two independent photons at random. In the blockade regime, you should find $g^{(2)} < 1$.}
 
-If we compute compute the two photon correlation function we get a value of 
-$$g^{(2)}=0.0845$$
-with a $\bracket{n}=0.2601$
+A convenient operational expression for the zero-delay second-order correlation is
+\[
+  g^{(2)}(0)
+  =
+  \frac{\mathrm{Tr}\left(\hat{a}^\dagger \hat{a}^\dagger \hat{a} \hat{a} \,\rho_{\mathrm{ss}}\right)}{\left[\mathrm{Tr}\left(\hat{a}^\dagger \hat{a} \,\rho_{\mathrm{ss}}\right)\right]^2}
+  =
+  \frac{\langle \hat{a}^\dagger \hat{a}^\dagger \hat{a} \hat{a} \rangle_{\mathrm{ss}}}{\langle \hat{a}^\dagger \hat{a} \rangle_{\mathrm{ss}}^2}
+\]
+where $\rho_{\mathrm{ss}}$ is the steady-state density matrix obtained by integrating the master equation until transients vanish (the cavity Hilbert space must be truncated to a sufficiently large Fock cutoff for numerical convergence).
 
-Meaning that we have sucssesfully achieve the photon blockade effect
+Evaluating the steady state for the parameters used in this work gives the numerical values
+\[
+  \langle n \rangle = \mathrm{Tr}\left(\hat{a}^\dagger\hat{a}\\,\rho_{\mathrm{ss}}\right) = 0.1251, \qquad
+  g^{(2)}(0) = 0.0018.
+\]
+Because $g^{(2)}(0)\ll 1$ the emitted field is strongly anti-bunched: the probability to detect two simultaneous photons is suppressed compared with independent (Poissonian) emission. This observation is the signature of the photon-blockade effect in the driven Jaynes--Cummings system: the anharmonicity of the dressed-state ladder makes the two-photon transition far less likely than the single-photon one.
+
+
 \subsection{Scan the values of $\omega$ around the resonance and graphically represent your findings as in Fig. 2a of the paper by Birnbaum et al.}
+
+To characterize the system response across the resonance, we perform a frequency scan of the driving field $\omega$ around the bare cavity resonance $\omega_c$. The resulting transmission spectrum, shown in Fig. \ref{fig:birnbaum_scan}, exhibits the classic \textbf{Vacuum Rabi Splitting}. 
+
+The two distinct peaks are located at $\omega = \omega_c \pm g$, representing the two-component nature of the first rung of the Jaynes-Cummings ladder . In the strong-coupling regime ($\tilde{g} \gg \kappa, \Gamma$), these peaks are well-resolved and separated by a wide transparency window. This frequency-dependent response is what allows for the photon blockade: while the system is highly transparent to a single photon, the non-linearity of the interaction shifts the two-photon resonance away from these peaks, creating the suppression of the $g^{(2)}(0)$ correlation function as observed in Fig. 2a of the reference paper.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{Figure/B.png}
-    \caption{Caption}
-    \label{fig:placeholder}
+    \caption{Steady-state mean photon number $\langle \hat{a}^\dagger \hat{a} \rangle$ as a function of the drive frequency detuning $\Delta = \omega - \omega_c$. The doublet of peaks signifies the Vacuum Rabi splitting in the strong coupling regime.}
+    \label{fig:birnbaum_scan}
 \end{figure}
 
 
